@@ -11,7 +11,7 @@ async function backUpMongoDB() {
     var MONGO_URI = process.env.MONGO_URI || ''
     var ARCHIVE_PATH = process.env.ARCHIVE_PATH || ''
     
-    var cmd = `mongodump --uri${MONGO_URI} --archive=${ARCHIVE_PATH} --gzip}`
+    var cmd = `mongodump --uri=${MONGO_URI} --archive=${ARCHIVE_PATH} --gzip}`
 
 
     return new Promise(function (resolve, reject) {

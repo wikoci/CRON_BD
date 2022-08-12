@@ -16,7 +16,7 @@ async function backUpMongoDB() {
     PATH = PATH.replace('utils','')
     var MONGO_URI = process.env.MONGO_URI || ''
     var BIN_TOOLS =process.env.BIN_TOOLS || ''
-    var ARCHIVE_PATH = PATH + '/BD.gzip'
+    var ARCHIVE_PATH = PATH + '/BD.zip'
     var cmd = `${BIN_TOOLS}  --uri=${MONGO_URI} --archive=${ARCHIVE_PATH}`;
    
 
@@ -26,7 +26,7 @@ async function backUpMongoDB() {
         await mkdirp.sync(PATH)
 
         await system(cmd).then(output => {
-           
+           consola.success('DATABASE BACKUP DONE .')
             resolve(output)
         }).catch(err => {
             consola.error(err)

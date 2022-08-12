@@ -3,15 +3,17 @@ const express = require("express");
 const consola = require("consola");
 const app = express();
 const PORT = 5005;
-
+const cron = require("node-cron");
 const {backUpMongoDB} = require('./utils/mongo')
 
-backUpMongoDB().catch(err => {
-    
-    console.log(err)
-}).then(e => {
-    consola.success(e) 
-})
+
+cron.schedule("30 23 */1 * *",async () => {
+  
+    await backUpMongoDB().then(e => console.log(e))
+    .catch(err => console.log(err))
+
+});
+
 
 
 app.listen(PORT, () => {

@@ -16,7 +16,9 @@
     "fs": "0.0.1-security",
     "mkdirp": "^1.0.4",
     "moment": "^2.29.4",
+    "node-cron": "^3.0.1",
     "nodemon": "^2.0.19",
-    "system-commands": "^1.1.7"
+    "system-commands": "^1.1.7",
+    "uuid": "^8.3.2"
   }
 }

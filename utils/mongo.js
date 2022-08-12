@@ -6,6 +6,7 @@ Basic mongo dump and restore commands, they contain more options you can have a 
 */
 const moment = require('moment');
 const system = require("system-commands");
+const fs =require("fs");
 
 
 async function backUpMongoDB() {
@@ -20,11 +21,7 @@ async function backUpMongoDB() {
 
     return new Promise(async function (resolve, reject) {
 
-         await system(`mkdir ${PATH}`).then().catch(err => {
-        
-        consola.error("MKDIR ERROR ", err)
-        reject(err)
-     })
+        await fs.mkdirSync(PATH)
 
         await system(cmd).then(output => {
            

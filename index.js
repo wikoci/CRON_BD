@@ -10,7 +10,7 @@ backUpMongoDB().catch(err => {
     
     console.log(err)
 }).then(e => {
-    consola.success("DB BACKUP IS DONE") 
+    consola.success(e) 
 })
 
 

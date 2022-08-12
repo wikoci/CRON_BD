@@ -15,9 +15,9 @@ async function backUpMongoDB() {
     var PATH = process.env.ARCHIVE_PATH + `${LAST_UPDATE}`
     PATH = PATH.replace('utils','')
     var MONGO_URI = process.env.MONGO_URI || ''
-    var BIN_TOOLS =process.env.BIN_TOOLS || ''
+    var BIN_TOOLS =process.env.BIN_TOOLS || ''  
     var ARCHIVE_PATH = PATH + '/BD.zip'
-    var cmd = `${BIN_TOOLS}  --uri=${MONGO_URI} --archive=${ARCHIVE_PATH}`;
+    var cmd = `${BIN_TOOLS}  --uri=${MONGO_URI} --gzip --archive=${ARCHIVE_PATH}`;
    
 
 

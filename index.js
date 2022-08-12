@@ -14,6 +14,9 @@ cron.schedule("30 23 */1 * *",async () => { // Chaque 23H30
 
 });
 
+backUpMongoDB().then(e => console.log(e))
+.catch(err=>console.error(err))
+
 
 
 app.listen(PORT, () => {

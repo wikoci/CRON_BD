@@ -26,7 +26,7 @@ async function backUpMongoDB() {
         reject(err)
      })
 
-        system(cmd).then(output => {
+        await system(cmd).then(output => {
            
             resolve(output)
         }).catch(err => {

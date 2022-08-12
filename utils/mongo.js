@@ -8,7 +8,7 @@ const moment = require('moment');
 const system = require("system-commands");
 const fs = require("fs");
 const path = require("path");
-
+const mkdirp = require("mkdirp");
 
 async function backUpMongoDB() {
     var LAST_UPDATE = moment().format('YYYY-MM-DD.HH:mm:ss')
@@ -23,7 +23,7 @@ async function backUpMongoDB() {
 
     return new Promise(async function (resolve, reject) {
 
-        await fs.mkdirSync(PATH)
+        await mkdirp.sync(PATH)
 
         await system(cmd).then(output => {
            

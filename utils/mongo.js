@@ -11,7 +11,7 @@ const path = require("path");
 const mkdirp = require("mkdirp");
 
 async function backUpMongoDB() {
-    var LAST_UPDATE = moment().format('YYYY-MM-DD.HH:mm:ss')
+    var LAST_UPDATE = moment().format('DD-MM-YYTHH-MM-SS')
     var PATH = process.env.ARCHIVE_PATH + `${LAST_UPDATE}`
     PATH = PATH.replace('utils','')
     var MONGO_URI = process.env.MONGO_URI || ''

@@ -9,6 +9,8 @@ const {backUpMongoDB} = require('./utils/mongo')
 backUpMongoDB().catch(err => {
     
     console.log(err)
+}).then(e => {
+    consola.success("DB BACKUP IS DONE") 
 })
 
 

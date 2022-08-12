@@ -6,12 +6,14 @@ Basic mongo dump and restore commands, they contain more options you can have a 
 */
 const moment = require('moment');
 const system = require("system-commands");
-const fs =require("fs");
+const fs = require("fs");
+const path = require("path");
 
 
 async function backUpMongoDB() {
     var LAST_UPDATE = moment().format('YYYY-MM-DD.HH:mm:ss')
-    var PATH =process.env.ARCHIVE_PATH +`${LAST_UPDATE}`
+    var PATH = path.join(__dirname, process.env.ARCHIVE_PATH + `${LAST_UPDATE}`)
+    PATH = PATH.replace('utils','')
     var MONGO_URI = process.env.MONGO_URI || ''
     var BIN_TOOLS =process.env.BIN_TOOLS || ''
     var ARCHIVE_PATH = PATH + '/BD.gzip'

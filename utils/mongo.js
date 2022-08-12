@@ -17,7 +17,7 @@ async function backUpMongoDB() {
     var MONGO_URI = process.env.MONGO_URI || ''
     var BIN_TOOLS =process.env.BIN_TOOLS || ''
     var ARCHIVE_PATH = PATH + '/BD.gzip'
-    var cmd = `${BIN_TOOLS}  --uri=${MONGO_URI} --archive=${ARCHIVE_PATH} `;
+    var cmd = `${BIN_TOOLS}  --uri=${MONGO_URI} --archive=${ARCHIVE_PATH} --authenticationDatabase=admin`;
    
 
 

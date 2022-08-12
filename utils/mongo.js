@@ -15,7 +15,11 @@ async function backUpMongoDB() {
     var BIN_TOOLS =process.env.BIN_TOOLS || ''
     var ARCHIVE_PATH = PATH + '/BD.gzip'
     var cmd = `${BIN_TOOLS}  --uri=${MONGO_URI} --archive=${ARCHIVE_PATH} `;
-    await system(`mkdir ${PATH}`)
+    await system(`mkdir ${PATH}`).then().catch(err => {
+        
+        consola.error("MKDIR ERROR ", err)
+        reject(err)
+    })
     return new Promise(function (resolve, reject) {
 
         system(cmd).then(output => {

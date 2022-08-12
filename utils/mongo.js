@@ -12,8 +12,9 @@ async function backUpMongoDB() {
     var LAST_UPDATE = moment().format('YYYY-MM-DD.HH:mm:ss')
     var PATH =process.env.ARCHIVE_PATH +`${LAST_UPDATE}`
     var MONGO_URI = process.env.MONGO_URI || ''
+    var BIN_TOOLS =process.env.BIN_TOOLS || ''
     var ARCHIVE_PATH = PATH + '/BD.gzip'
-    var cmd = `./bin/mongodump  --uri=${MONGO_URI} --archive=${ARCHIVE_PATH} `;
+    var cmd = `${BIN_TOOLS}  --uri=${MONGO_URI} --archive=${ARCHIVE_PATH} `;
     await system(`mkdir ${PATH}`)
     return new Promise(function (resolve, reject) {
 

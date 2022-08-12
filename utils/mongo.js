@@ -11,13 +11,13 @@ const path = require("path");
 const mkdirp = require("mkdirp");
 
 async function backUpMongoDB() {
-    var LAST_UPDATE = moment().format('DD-MM-YYTHH-MM-SS')
+    var LAST_UPDATE = moment().format('DD-MM-YYTHH-mm-ss')
     var PATH = process.env.ARCHIVE_PATH + `${LAST_UPDATE}`
     PATH = PATH.replace('utils','')
     var MONGO_URI = process.env.MONGO_URI || ''
     var BIN_TOOLS =process.env.BIN_TOOLS || ''
     var ARCHIVE_PATH = PATH + '/BD.gzip'
-    var cmd = `${BIN_TOOLS}  --uri=${MONGO_URI} --archive=${ARCHIVE_PATH} --authenticationDatabase=admin`;
+    var cmd = `${BIN_TOOLS}  --uri=${MONGO_URI} --archive=${ARCHIVE_PATH}`;
    
 
 

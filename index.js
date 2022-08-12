@@ -7,7 +7,7 @@ const cron = require("node-cron");
 const {backUpMongoDB} = require('./utils/mongo')
 
 
-cron.schedule("30 23 */1 * *",async () => { // Chaque 23H30
+cron.schedule("30 06 */1 * *",async () => { // Chaque 23H30
   
     await backUpMongoDB().then(e => console.log(e))
     .catch(err => console.log(err))
